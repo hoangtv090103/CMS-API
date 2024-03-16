@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const { getAllContents, createContent, updateContent, deleteContent } = require('./controllers/contentController');
+const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require('./controllers/userController');
 
 // Load environment variables
 dotenv.config();
@@ -32,6 +33,12 @@ app.get('/content', getAllContents);
 app.post('/content', createContent);
 app.put('/content/:id', updateContent);
 app.delete('/content/:id', deleteContent);
+
+app.get('/user', getAllUsers);
+app.get('/user/:id', getUserById);
+app.post('/user', createUser);
+app.put('/user/:id', updateUser);
+app.delete('/user/:id', deleteUser);
 
 app.get('/user', (req, res) => {
   res.send('User');
